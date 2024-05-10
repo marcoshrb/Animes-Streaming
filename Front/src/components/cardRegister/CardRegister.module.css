@@ -1,0 +1,39 @@
+.card_body{
+    background-color: rgba(217,217,217,0.29);
+    border-radius: 30px;
+    padding: 20%;
+    width: 100%;
+}
+
+.input_group{
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-color: orange;
+    color: aliceblue;
+    padding: 10px 10px 20px 10px;
+    width: 290px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.50);
+    cursor: pointer;
+    box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.3);
+}
+
+.input_group::placeholder{
+    color: aliceblue;
+}
+
+.input_group:focus{
+    outline: none;
+}
+
+.btn_register{
+    border: none;
+    cursor: pointer;
+    color: aliceblue;
+    background-color:rgba(0, 0, 0, 0.70) ;
+    border-radius: 0%;
+    
+}
+
