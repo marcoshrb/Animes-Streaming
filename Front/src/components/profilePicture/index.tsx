@@ -1,16 +1,18 @@
-import React from 'react';
-import style from './profilePicture.index.css'
 
-interface ProfilePicProps {
-    src: string; 
-  }
+//style
+import style from "./profilePicture.module.css"
 
-  const ProfilePic: React.FC<ProfilePicProps> = ({ src }) => {
+interface ProfilePictureProps {
+  src: string;
+}
+
+
+  export default function profilePicture({src}: ProfilePictureProps){
     return (
-      <div className="profile-pic-container">
-        <img src={src} alt="Foto de perfil" className="profile_pic" />
+      <>
+      <div className={style.profile_pic_container}>
+        <img src={src} alt="Foto de perfil" className={style.profile_pic} />
       </div>
+      </>
     );
-  };
-  
-  export default ProfilePic;
+  }
