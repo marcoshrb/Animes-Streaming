@@ -6,12 +6,17 @@ import {
 } from "react-router-dom";
 import './index.css'
 import RegisterPage from './pages/RegisterPage';
+import VideoPage from './pages/VideoPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RegisterPage/>,
   },
+  {
+    path: "/video",
+    element: <VideoPage/>
+  }
   
 ]);
 
