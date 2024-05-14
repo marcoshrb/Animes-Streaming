@@ -1,6 +1,11 @@
+//styles
 import style from "./CardLogin.module.css";
+
+//bootstrap components
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+
+//assets
 import reactSvg from '../../assets/react.svg';
 
 function CardLogin() {

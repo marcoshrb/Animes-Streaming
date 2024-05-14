@@ -39,6 +39,8 @@ body {
     width: 400px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
     background-color: rgba(0, 0, 0, 0.50);
     box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.3);
 }
@@ -63,18 +65,18 @@ body {
 }
 
 .btn_register:hover {
-   background-color: transparent;
-   border-width: 1px;
-   border-color: black;
+    background-color: rgb(255, 141, 0);
+    color: black;
+    transition: background-color 0.7s ease, color 0.7s ease;
 }
 
-.link{
+.link {
     margin-top: 20%;
     color: aliceblue;
     font-size: small;
 }
 
-span{
+span {
     color: orange;
 }
 

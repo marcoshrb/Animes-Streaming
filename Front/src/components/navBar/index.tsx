@@ -1,3 +1,4 @@
+//styles
 import style from "./NavBar.module.css";
 
 function NavBar() {

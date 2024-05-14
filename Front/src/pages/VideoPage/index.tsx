@@ -1,5 +1,8 @@
+//internal components
 import CardVideo from "../../components/cardVideo";
 import NavBar from "../../components/navBar";
+
+//styles
 import style  from "./Video.module.css";
 
 export default function VideoPage() {

@@ -7,7 +7,7 @@ import style from "./profilePicture.module.css"
 
 interface ProfilePictureProps {
   src: string;
-  onChange: (newSrc: string) => void; // Função para notificar o componente pai sobre a alteração na imagem
+  onChange: (newSrc: string) => void; 
 }
 
 const ProfilePicture: React.FC<ProfilePictureProps> = ({ src, onChange }) => {
@@ -20,7 +20,7 @@ const ProfilePicture: React.FC<ProfilePictureProps> = ({ src, onChange }) => {
       reader.onloadend = () => {
         const newSrc = reader.result as string;
         setSelectedImage(newSrc);
-        onChange(newSrc); // Notificar o componente pai sobre a alteração na imagem
+        onChange(newSrc); 
       };
       reader.readAsDataURL(file);
     }
@@ -47,13 +47,3 @@ const ProfilePicture: React.FC<ProfilePictureProps> = ({ src, onChange }) => {
 };
 
 export default ProfilePicture;
-
-// export default function profilePicture({src}: ProfilePictureProps){
-//   return (
-//     <>
-//     <div className={style.profile_pic_container}>
-//       <img src={src} alt="Foto de perfil" className={style.profile_pic} />
-//     </div>
-//     </>
-//   );
-// }
