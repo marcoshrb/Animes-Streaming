@@ -1,3 +1,4 @@
+
 .body_Card{
     width: 100%;
     min-height: 30%;
@@ -6,8 +7,33 @@
     align-items: center;
     justify-content: center;
 }
+.Titles{
+    font-size:x-large;
+}
+.Icons{
+    height: 30px;
+    margin-right: 10px;
+}
+.Icon-comments{
+    height: 40px;
+}
 .interactions-Card{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin: 1% 15% 0 15%;
+    color: white;
+}
+.Next-body{
+    display: flex;
+    flex-direction: row;
+}
+.Card-Next{
+    margin-top: 10px;
+    margin-right: 20px;
+    min-height: 100px;
+    width: 15%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
