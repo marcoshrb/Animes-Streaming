@@ -7,10 +7,15 @@ import {
 import './index.css'
 import RegisterPage from './pages/RegisterPage';
 import VideoPage from './pages/VideoPage';
+import LoginPage from './pages/LoginPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <LoginPage/>,
+  },
+  {
+    path: "/register",
     element: <RegisterPage/>,
   },
   {
