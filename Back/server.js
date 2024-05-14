@@ -1,13 +1,18 @@
 const express = require('express');
-const cors = require('cors');
+const mysql = require('mysql');
  
 const app = express();
  
-require('./startup/db')();
- 
-app.use(cors({
-    origin: '*'
-}));
+// Configuração da conexão MySQL
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'seu_usuario',
+    password: 'sua_senha',
+    database: 'nome_do_banco_de_dados'
+  });
+
+// Conectar ao MySQL
+connection.connect();
  
 require('./startup/routes')(app);
  
