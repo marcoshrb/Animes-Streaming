@@ -5,6 +5,10 @@
     width: 100%;
 }
 
+.input_form{
+    margin-bottom: 15%;
+}
+
 .input_group{
     border-top: none;
     border-right: none;

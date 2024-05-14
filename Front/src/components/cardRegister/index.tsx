@@ -9,12 +9,28 @@ export default function CardRegister() {
     <Card>
       <Card.Body className={style.card_body}>
         <Form>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+          <Form.Group className={style.input_form} controlId="exampleForm.ControlInput1">
             {/* <Form.Label>Email address</Form.Label> */}
-            <Form.Control className={style.input_group} type="email" placeholder="name@example.com" />
+            <Form.Control className={style.input_group} type="text" required placeholder="Name" />
           </Form.Group>
-          <button className={style.btn_register} type="button">CREATE ACCOUNT</button>
+          <Form.Group className={style.input_form} controlId="exampleForm.ControlInput1">
+            {/* <Form.Label>Email address</Form.Label> */}
+            <Form.Control className={style.input_group} type="email" required placeholder="Email" />
+          </Form.Group>
+          <Form.Group className={style.input_form} controlId="exampleForm.ControlInput1">
+            {/* <Form.Label>Email address</Form.Label> */}
+            <Form.Control className={style.input_group} type="password" required placeholder="Password" />
+          </Form.Group>
+          <Form.Group className={style.input_form} controlId="exampleForm.ControlInput1">
+            {/* <Form.Label>Email address</Form.Label> */}
+            <Form.Control className={style.input_group} type="password" required placeholder="Confirm Password" />
+          </Form.Group>
         </Form>
+        <div className={style.right_components}>
+          
+
+          <button className={style.btn_register} type="button">CREATE ACCOUNT</button>
+        </div>
       </Card.Body>
     </Card>
   );
