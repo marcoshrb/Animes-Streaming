@@ -1,3 +1,6 @@
+//react features
+import { useState } from "react";
+
 //styles
 import style from "./CardRegister.module.css";
 
@@ -11,6 +14,12 @@ import Form from 'react-bootstrap/Form';
 import ProfilePic from "../profilePicture";
 
 export default function CardRegister() {
+  const [profileImage, setProfileImage] = useState('');
+
+  const handleProfileImageChange = (newSrc: string) => {
+    setProfileImage(newSrc);
+  };
+
   return (
     <div className={style.body}>
       <Card className={style.card}>
@@ -35,7 +44,7 @@ export default function CardRegister() {
               </Form.Group>
             </Form>
             <div className={style.right_components}>
-              <ProfilePic src="https://criticalhits.com.br/wp-content/uploads/2022/08/jujutsu-kaisen-sukuna.jpg" />
+              <ProfilePic src={profileImage} onChange={handleProfileImageChange} />
               <button className={style.btn_register} type="button">CREATE ACCOUNT</button>
               <p className={style.link}>Já possui uma conta?<a href="/"><span> Log In</span></a></p>
             </div>

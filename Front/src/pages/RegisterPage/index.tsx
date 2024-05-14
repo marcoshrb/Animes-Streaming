@@ -1,4 +1,7 @@
+//internal components
 import CardRegister from "../../components/cardRegister";
+
+//styles
 import style  from "./Register.module.css";
 
 export default function RegisterPage() {
