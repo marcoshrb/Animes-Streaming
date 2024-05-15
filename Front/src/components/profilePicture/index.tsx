@@ -33,7 +33,7 @@ const ProfilePicture: React.FC<ProfilePictureProps> = ({ src, onChange }) => {
   return (
     <>
       <div className={style.profile_pic_container} onClick={handleImageClick}>
-        <img src={selectedImage} alt="Foto de perfil" className={style.profile_pic} />
+        <img src={selectedImage} alt=".............Foto de perfil........." className={style.profile_pic} />
       </div>
       <input
         type="file"

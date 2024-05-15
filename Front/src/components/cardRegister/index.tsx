@@ -7,6 +7,7 @@ import style from "./CardRegister.module.css";
 //bootstrap components
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
+import React from 'react';
 
 //internal components
 import ProfilePic from "../profilePicture";
