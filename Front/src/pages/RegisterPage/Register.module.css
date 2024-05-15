@@ -1,17 +1,20 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: rgb(2,0,36);
-    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(255,141,0,1) 100%);
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(255, 141, 0, 1) 100%);
 }
 
-.body{
+.body {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
-.card_area{
-    display: flex;
+.card_area {
+  margin-left: 72%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

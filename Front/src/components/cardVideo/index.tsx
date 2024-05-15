@@ -1,4 +1,7 @@
+//styles
 import style from "./CardVideo.module.css";
+
+//assets
 import Like from "./assets/like-svgrepo-com.svg";
 import Dislike from "./assets/dislike-svgrepo-com.svg";
 import CommentsWhite from "./assets/comments-3-svgrepo-com.svg";
