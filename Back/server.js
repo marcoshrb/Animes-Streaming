@@ -1,21 +1,21 @@
 const express = require('express');
-const mysql = require('mysql');
- 
 const app = express();
- 
-// Configuração da conexão MySQL
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'seu_usuario',
-    password: 'sua_senha',
-    database: 'nome_do_banco_de_dados'
-  });
+const dotenv = require('dotenv');
+dotenv.config()
 
-// Conectar ao MySQL
-connection.connect();
+const router = require('./startup/routes');
+const conexao = require('./connection');
+const User = require("./src/model/user");
+const port = process.env.API_PORT;
+
+User.init(conexao);
+
+// router(app);
  
-require('./startup/routes')(app);
- 
-const port = 8080;
- 
-app.listen(port, () => console.log(`Acesse: http://localhost:${port}/`));
+app.listen(port, (error) => {
+  if(error) {
+    console.log("Deu erro");
+    return;
+  }
+  console.log(`Acesse: http://localhost:${port}/`)
+});

@@ -1,23 +1,32 @@
-const mongoose = require('mongoose');
 
-const User = mongoose.model('User',
-    new mongoose.Schema({
-        login: {
-            type: String,
-            required: true,
-            minLength: 3
-        },
-        password: {
-            type: String,
-            required: true,
-            minlength: 6
-        },
-        adm: {
-            type: Boolean,
-            required: false,
-            default: false
-        }
-    })
-)
+class User {
 
-module.exports = User
+    init(conexao) {
+        this.conexao = conexao;
+        this.createUser();
+    }
+
+    createUser() {
+
+        const sql =
+            `
+            CREATE TABLE IF NOT EXISTS users (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            login VARCHAR(255) NOT NULL,
+            password VARCHAR(255) NOT NULL,
+            adm BOOLEAN DEFAULT FALSE
+        );
+            `;
+
+        this.conexao.query(sql, (error) => {
+            if(error) {
+                console.log("Algo deu ruim");
+                console.log(error.message);
+                return;
+            }
+            console.log("Tabela de User criada com sucesso!");
+        });
+    }
+}
+
+module.exports = new User();
