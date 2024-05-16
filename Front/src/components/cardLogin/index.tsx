@@ -8,9 +8,6 @@ import style from "./CardLogin.module.css";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-//assets
-import reactSvg from '../../assets/react.svg';
-
 //internal components
 import ProfilePic from "../profilePicture";
 
@@ -35,7 +32,7 @@ function CardLogin() {
                   <Form.Control
                     id="floatingInputCustom"
                     type="email"
-                    placeholder="User or Email:"
+                    placeholder="Email:"
                     className={style.input_group}
                   />
                   <label htmlFor="floatingInputCustom">User or Email:</label>

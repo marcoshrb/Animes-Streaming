@@ -8,6 +8,7 @@ import './index.css'
 import RegisterPage from './pages/RegisterPage';
 import VideoPage from './pages/VideoPage';
 import LoginPage from './pages/LoginPage';
+import HomePage from './pages/HomePage';
 
 const router = createBrowserRouter([
   {
@@ -21,8 +22,11 @@ const router = createBrowserRouter([
   {
     path: "/video",
     element: <VideoPage/>
+  },
+  {
+    path: "/home",
+    element: <HomePage/>
   }
-  
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

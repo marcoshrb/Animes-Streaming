@@ -7,7 +7,6 @@ import style from "./CardRegister.module.css";
 //bootstrap components
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
-import React from 'react';
 
 //internal components
 import ProfilePic from "../profilePicture";
@@ -25,22 +24,42 @@ export default function CardRegister() {
         <Card.Body className={style.card_body}>
           <div className={style.card_content_wrapper}>
             <Form className={style.form}>
-              <Form.Group className={style.input_form} controlId="Name">
-                {/* <Form.Label>Email address</Form.Label> */}
-                <Form.Control className={style.input_group} type="text" required placeholder="Name" />
-              </Form.Group>
-              <Form.Group className={style.input_form} controlId="Email">
-                {/* <Form.Label>Email address</Form.Label> */}
-                <Form.Control className={style.input_group} type="email" required placeholder="Email" />
-              </Form.Group>
-              <Form.Group className={style.input_form} controlId="Password">
-                {/* <Form.Label>Email address</Form.Label> */}
-                <Form.Control className={style.input_group} type="password" required placeholder="Password" />
-              </Form.Group>
-              <Form.Group className={style.input_form} controlId="ConfirmPassword">
-                {/* <Form.Label>Email address</Form.Label> */}
-                <Form.Control className={style.input_group} type="password" required placeholder="Confirm Password" />
-              </Form.Group>
+            <Form.Floating className={style.input_form}>
+                  <Form.Control
+                    id="floatingInputCustom"
+                    type="text"
+                    placeholder="Username:"
+                    className={style.input_group}
+                  />
+                  <label htmlFor="floatingInputCustom">Username:</label>
+                </Form.Floating>
+                <Form.Floating className={style.input_form}>
+                  <Form.Control
+                    id="floatingInputCustom"
+                    type="email"
+                    placeholder="Email:"
+                    className={style.input_group}
+                  />
+                  <label htmlFor="floatingInputCustom">Email:</label>
+                </Form.Floating>
+                <Form.Floating className={style.input_form}>
+                  <Form.Control
+                    id="floatingInputCustom"
+                    type="password"
+                    placeholder="Password:"
+                    className={style.input_group}
+                  />
+                  <label htmlFor="floatingInputCustom">Password:</label>
+                </Form.Floating>
+                <Form.Floating className={style.input_form}>
+                  <Form.Control
+                    id="floatingInputCustom"
+                    type="password"
+                    placeholder="ConfirmPassword:"
+                    className={style.input_group}
+                  />
+                  <label htmlFor="floatingInputCustom">Confirm Password:</label>
+                </Form.Floating>
             </Form>
             <div className={style.right_components}>
               <ProfilePic src={profileImage} onChange={handleProfileImageChange} />

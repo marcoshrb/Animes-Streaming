@@ -1,0 +1,19 @@
+.img_c{
+    box-shadow: inset 100 1000 100px rgba(0, 0, 0, 0.827);
+    min-width: 100%;
+}
+.button-assistir-agora{
+    background-color: rgb(255,141,0);
+    border: 0cm;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+.button-assistir-agora:hover{
+    background-color: black;
+    color: white;
+}
+.play-icon{
+    margin-left: 10px;
+    height: 18px;
+}
