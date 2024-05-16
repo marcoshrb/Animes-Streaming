@@ -10,7 +10,7 @@ const port = process.env.API_PORT;
 
 User.init(conexao);
 
-// router(app);
+router(app);
  
 app.listen(port, (error) => {
   if(error) {

@@ -3,9 +3,9 @@ const UserController = require('../controller/userController');
 const route = express.Router();
 
 route
-    .post('/register', UserController.register)
     .post('/', UserController.login)
-    .delete('/remove/:id', UserController.remove)
     .get('/getAll', UserController.GetAll)
+    .post('/register', UserController.register)
+    .delete('/remove/:id', UserController.remove)
 
 module.exports = route;
