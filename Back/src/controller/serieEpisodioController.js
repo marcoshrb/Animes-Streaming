@@ -52,8 +52,7 @@ class SerieEpisodioController {
             return res.status(500).send({ message: "Erro ao processar a solicitação." });
         }
     }
-    
-
+   
     static async remove(req, res) {
         const { id } = req.params;
         if (!id)

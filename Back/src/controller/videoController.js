@@ -12,7 +12,7 @@ class videoController {
                 return res.status(400).json({ message: "Todos os campos são obrigatórios." });
             }
     
-            conexao.query('SELECT * FROM Video WHERE Titulo = ?', [email], (error, results) => {
+            conexao.query('SELECT * FROM Video WHERE Titulo = ?', [Titulo], (error, results) => {
                 if (error) {
                     console.error(error);
                     return res.status(500).send({ message: "Erro ao verificar o usuário." });
@@ -42,7 +42,6 @@ class videoController {
         }
     }
     
-
     static async remove(req, res) {
         const { id } = req.params;
         if (!id)

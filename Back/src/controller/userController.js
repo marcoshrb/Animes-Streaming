@@ -21,7 +21,7 @@ class UserController {
         if (!password)
             return res.status(422).json({ message: "A senha é obrigatória." });
 
-        conexao.query('SELECT * FROM users WHERE login = ?', [login], async (error, results) => {
+        conexao.query('SELECT * FROM Usuario WHERE email = ?', [login], async (error, results) => {
             if (error) {
                 console.error(error);
                 return res.status(500).send({ message: "Erro ao realizar a consulta." });
@@ -33,7 +33,8 @@ class UserController {
 
             const user = results[0];
 
-            const validPassword = await bcrypt.compare(password, user.password);
+            const validPassword = await bcrypt.compare(password, user.Senha);
+
             if (!validPassword) {
                 return res.status(422).send({ message: "Login ou senha inválidos." });
             }
@@ -41,8 +42,8 @@ class UserController {
             try {
                 const token = jwt.sign(
                     {
-                        id: user.id,
-                        adm: user.adm
+                        Id: user.Id,
+                        IsAdmin: user.IsAdmin
                     },
                     process.env.SECRET,
                     {
@@ -77,7 +78,7 @@ class UserController {
             // Hash da senha
             const hashedPassword = await bcrypt.hash(password, 10);
     
-            conexao.query('SELECT * FROM Usuario WHERE login = ?', [email], (error, results) => {
+            conexao.query('SELECT * FROM Usuario WHERE email = ?', [email], (error, results) => {
                 if (error) {
                     console.error(error);
                     return res.status(500).send({ message: "Erro ao verificar o usuário." });
@@ -88,9 +89,10 @@ class UserController {
                 }
                 
                 const user = {
-                    login: email,
-                    password: hashedPassword,
-                    adm: email === 'adm@adm'
+                    Nome : name,
+                    Email: email,
+                    Senha: hashedPassword,
+                    IsAdmin: email === 'adm@adm'
                 };
     
                 conexao.query('INSERT INTO Usuario SET ?', user, (error, results) => {
@@ -107,7 +109,6 @@ class UserController {
         }
     }
     
-
     static async remove(req, res) {
         const { id } = req.params;
         if (!id)

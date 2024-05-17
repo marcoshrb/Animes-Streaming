@@ -14,7 +14,7 @@ class User {
                 Id int primary key not null AUTO_INCREMENT,
                 Nome varchar(255) not null,
                 Email varchar(200) not null,
-                Senha varchar(50) not null,
+                Senha varchar(100) not null,
                 IsAdmin boolean DEFAULT FALSE
             );
             `;

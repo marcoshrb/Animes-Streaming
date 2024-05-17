@@ -51,7 +51,6 @@ class AssistirController {
         }
     }
     
-
     static async remove(req, res) {
         const { id } = req.params;
         if (!id)

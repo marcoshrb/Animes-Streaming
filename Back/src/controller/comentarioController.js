@@ -52,7 +52,6 @@ class ComentarioController {
         }
     }
     
-
     static async remove(req, res) {
         const { id } = req.params;
         if (!id)
