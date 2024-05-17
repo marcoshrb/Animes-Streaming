@@ -8,7 +8,7 @@ const conexao = require('./connection');
 const User = require("./src/model/user");
 const port = process.env.API_PORT;
 
-User.init(conexao);
+// User.init(conexao);
 
 router(app);
  

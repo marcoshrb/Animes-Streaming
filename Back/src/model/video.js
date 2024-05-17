@@ -1,21 +1,20 @@
 
-class User {
+class Video {
 
     init(conexao) {
         this.conexao = conexao;
-        this.createUser();
+        this.createVideo();
     }
 
-    createUser() {
+    createVideo() {
 
         const sql =
             `
-            create table if not exists Usuario (
+            create table if not exists Video (
                 Id int primary key not null AUTO_INCREMENT,
-                Nome varchar(255) not null,
-                Email varchar(200) not null,
-                Senha varchar(50) not null,
-                IsAdmin boolean DEFAULT FALSE
+                Titulo varchar(255) not null,
+                Descricao varchar(255) not null,
+                URL text not null
             );
             `;
 
@@ -25,9 +24,9 @@ class User {
                 console.log(error.message);
                 return;
             }
-            console.log("Tabela de User criada com sucesso!");
+            console.log("Tabela de Video criada com sucesso!");
         });
     }
 }
 
-module.exports = new User();
+module.exports = new Video();

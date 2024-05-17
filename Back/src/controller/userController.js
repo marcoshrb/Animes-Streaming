@@ -21,7 +21,6 @@ class UserController {
         if (!password)
             return res.status(422).json({ message: "A senha é obrigatória." });
 
-        // Consulta ao banco de dados para encontrar o usuário
         conexao.query('SELECT * FROM users WHERE login = ?', [login], async (error, results) => {
             if (error) {
                 console.error(error);
@@ -34,13 +33,11 @@ class UserController {
 
             const user = results[0];
 
-            // Comparar a senha fornecida com a senha do banco de dados
             const validPassword = await bcrypt.compare(password, user.password);
             if (!validPassword) {
                 return res.status(422).send({ message: "Login ou senha inválidos." });
             }
 
-            // Gerar token JWT
             try {
                 const token = jwt.sign(
                     {
@@ -69,12 +66,10 @@ class UserController {
             
             const { name, email, password, confirmPassword } = req.body;
             
-            // Verificar se todos os campos necessários foram fornecidos
             if (!name || !email || !password || !confirmPassword) {
                 return res.status(400).json({ message: "Todos os campos são obrigatórios." });
             }
             
-            // Verificar se as senhas coincidem
             if (password !== confirmPassword) {
                 return res.status(400).json({ message: "As senhas não coincidem." });
             }
@@ -82,9 +77,7 @@ class UserController {
             // Hash da senha
             const hashedPassword = await bcrypt.hash(password, 10);
     
-
-            // Verificar se o usuário já existe no banco de dados
-            conexao.query('SELECT * FROM users WHERE login = ?', [email], (error, results) => {
+            conexao.query('SELECT * FROM Usuario WHERE login = ?', [email], (error, results) => {
                 if (error) {
                     console.error(error);
                     return res.status(500).send({ message: "Erro ao verificar o usuário." });
@@ -94,14 +87,13 @@ class UserController {
                     return res.status(422).send({ message: "E-mail já cadastrado." });
                 }
                 
-                // Inserir novo usuário no banco de dados
                 const user = {
                     login: email,
                     password: hashedPassword,
-                    adm: email === 'adm@adm' // Definir se é um usuário administrador
+                    adm: email === 'adm@adm'
                 };
     
-                conexao.query('INSERT INTO users SET ?', user, (error, results) => {
+                conexao.query('INSERT INTO Usuario SET ?', user, (error, results) => {
                     if (error) {
                         console.error(error);
                         return res.status(500).send({ message: "Erro ao cadastrar o usuário." });
@@ -121,8 +113,7 @@ class UserController {
         if (!id)
             return res.status(400).send({ message: "Nenhum ID fornecido." });
 
-        // Excluir usuário do banco de dados
-        conexao.query('DELETE FROM users WHERE id = ?', [id], (error, results) => {
+        conexao.query('DELETE FROM Usuario WHERE id = ?', [id], (error, results) => {
             if (error) {
                 console.error(error);
                 return res.status(500).send({ message: "Erro ao excluir o usuário." });
@@ -132,8 +123,7 @@ class UserController {
     }
 
     static async GetAll(req, res) {
-        // Obter todos os usuários do banco de dados
-        conexao.query('SELECT * FROM users', (error, results) => {
+        conexao.query('SELECT * FROM Usuario', (error, results) => {
             if (error) {
                 console.error(error);
                 return res.status(500).send({ message: "Erro ao buscar os usuários." });
