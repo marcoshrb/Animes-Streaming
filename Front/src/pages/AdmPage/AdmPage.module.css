@@ -1,0 +1,62 @@
+body{
+    width: 100vw;
+    align-items: start;
+}
+
+.body_Home_page{
+   width: 100vw;
+   display: flex;
+   flex-direction: column;
+   justify-content: start;
+}
+
+.welcome_container {
+    margin-top: 81px;
+    position: absolute;
+    height: 88.9vh;
+    width: 35%;
+    background-color: rgba(217, 217, 217, 0.29);
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.title {
+    position: absolute;
+    width: 50%;
+    top: 25%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    color: aliceblue;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 200;
+}
+
+.content_form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-top: 20.5% ;
+    top: 0;
+    right: 0;
+    width: 60%;
+}
+
+.butn{
+    width: 400px;
+    margin-bottom: 5%;
+    border: none;
+    height: 80px;
+    background-color: orange;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.butn:hover{
+    background-color: rgb(180, 117, 0);
+    color: rgb(37, 37, 37);
+}

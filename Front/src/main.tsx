@@ -9,6 +9,8 @@ import RegisterPage from './pages/RegisterPage';
 import VideoPage from './pages/VideoPage';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
+import AdmPage from './pages/AdmPage';
+import CatalogAdmPage from './pages/CatalogAdmPage';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <HomePage/>
+  },
+  {
+    path: "/home_adm",
+    element: <AdmPage/>
+  },
+  {
+    path: "/catalog",
+    element: <CatalogAdmPage/>
   }
 ]);
 
