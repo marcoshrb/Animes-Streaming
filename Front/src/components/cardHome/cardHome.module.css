@@ -1,0 +1,22 @@
+.card-Home
+{
+    display: flex;
+    flex-direction: column;
+    width: 190px;
+    margin-left: 2vw;
+    margin-top: 2vh;    
+}
+.body-card
+{
+    background-color: black;
+    min-height: 250px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Title
+{
+    color: white;
+    margin-top: 10px;
+}
