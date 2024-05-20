@@ -1,11 +1,108 @@
-body{
-    width: 100vw;
-    align-items: start;
+* {
+    box-sizing: border-box;
 }
 
 .body_Home_page{
-   width: 100vw;
+   width: 100%;
    display: flex;
    flex-direction: column;
    justify-content: start;
+}   
+
+.search_area{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-size: larger;
+    align-items: center;
+    color: #f5f5f5;
+    margin-top: 90px;
+}
+
+.search_container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+}
+
+.input_search{
+    border-radius: 0 !important;
+    height: 40px;
+    padding: 0px 20px;
+    width: 240px;
+    border-style: none;
+    color: orange;
+}
+
+.search_btn{
+    border: none;
+    background-color: orange;
+    color: #f5f5f5;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -1px; 
+    cursor: pointer;
+}
+
+.title{
+   padding-right: 18%;  
+}
+
+.btn_add_area{
+    display: flex;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.this_btn_add{
+    border: none;
+    background-color: orange;
+    color: #f5f5f5;
+    height: 40px;
+    width: 410px;
+}
+
+.card_container{
+    width: 100%;  
+    padding: 0 20px;  
+    margin: 0 auto;
+}
+
+.btn_area{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn_edit{
+    border: none;
+    width: 130px;
+    height: 40px;
+    margin-right: 20px;
+    left: 0;
+    color: #f5f5f5;
+    background-color: orange;
+}
+
+.btn_delete{
+    border: none;
+    width: 130px;
+    height: 40px;
+    margin-left: 20px;
+    right: 0;
+    color: #f5f5f5;
+    background-color: red;
+}
+
+.card{
+    border-radius: 0 !important;
+    margin-bottom: 50px;
 }
