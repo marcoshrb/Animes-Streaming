@@ -7,6 +7,8 @@ import style from "./CardRegister.module.css";
 //bootstrap components
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 //internal components
 import ProfilePic from "../profilePicture";
@@ -32,19 +34,19 @@ export default function CardRegister() {
   async function handleSubmit(e) {
 
     e.preventDefault();
-    
+
     if (!formValid())
       return
-    
+
     const json = {
       name, email, password, confirmPassword
     }
-    
+
     const jsonCrypt = CryptoJS.AES.encrypt(JSON.stringify(json), SECRET).toString();
-    
+
     try {
-      var res = await axios.post("http://localhost:8080/user/register", 
-        {jsonCrypt}
+      var res = await axios.post("http://localhost:8080/user/register",
+        { jsonCrypt }
       )
 
       console.log(res)
@@ -94,56 +96,63 @@ export default function CardRegister() {
 
 
   return (
-    <div className={style.body}>
+    <div className={style.body_Card_Register}>
       <Card className={style.card}>
         <Card.Body className={style.card_body}>
           <div className={style.card_content_wrapper}>
             <Form className={style.form} onSubmit={handleSubmit}>
-              <Form.Floating className={style.input_form}>
-                <Form.Control
-                  id="floatingInputCustom"
-                  type="text"
-                  placeholder="Username:"
-                  className={style.input_group}
-                  onChange={(e) => setName(e.target.value)}
-                />
-                <label htmlFor="floatingInputCustom">Username:</label>
-              </Form.Floating>
-              <Form.Floating className={style.input_form}>
-                <Form.Control
-                  id="floatingInputCustom"
-                  type="email"
-                  placeholder="Email:"
-                  className={style.input_group}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <label htmlFor="floatingInputCustom">Email:</label>
-              </Form.Floating>
-              <Form.Floating className={style.input_form}>
-                <Form.Control
-                  id="floatingInputCustom"
-                  type="password"
-                  placeholder="Password:"
-                  className={style.input_group}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <label htmlFor="floatingInputCustom">Password:</label>
-              </Form.Floating>
-              <Form.Floating className={style.input_form}>
-                <Form.Control
-                  id="floatingInputCustom"
-                  type="password"
-                  placeholder="ConfirmPassword:"
-                  className={style.input_group}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-                <label htmlFor="floatingInputCustom">Confirm Password:</label>
-              </Form.Floating>
-              <div className={style.right_components}>
-                <ProfilePic src={profileImage} onChange={handleProfileImageChange} />
-                <button className={style.btn_register} type="submit">CREATE ACCOUNT</button>
-                <p className={style.link}>Já possui uma conta?<a href="/"><span> Log In</span></a></p>
-              </div>
+              <Row style={{ width: "100%" }}>
+                <Col  xs={12} sm={6} className={style["Col-inputs"]} >
+                  <Form.Floating className={style.input_form}>
+                    <Form.Control
+
+                      id="floatingInputCustom"
+                      type="text"
+                      placeholder="Username:"
+                      className={style.input_group}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                    <label htmlFor="floatingInputCustom">Username:</label>
+                  </Form.Floating>
+                  <Form.Floating className={style.input_form}>
+                    <Form.Control
+                      id="floatingInputCustom"
+                      type="email"
+                      placeholder="Email:"
+                      className={style.input_group}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <label htmlFor="floatingInputCustom">Email:</label>
+                  </Form.Floating>
+                  <Form.Floating className={style.input_form}>
+                    <Form.Control
+                      id="floatingInputCustom"
+                      type="password"
+                      placeholder="Password:"
+                      className={style.input_group}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <label htmlFor="floatingInputCustom">Password:</label>
+                  </Form.Floating>
+                  <Form.Floating className={style.input_form}>
+                    <Form.Control
+                      id="floatingInputCustom"
+                      type="password"
+                      placeholder="ConfirmPassword:"
+                      className={style.input_group}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                    />
+                    <label htmlFor="floatingInputCustom">Confirm Password:</label>
+                  </Form.Floating>
+                </Col>
+                <Col  xs={12} sm={6} className={style.right_components}>
+                  <ProfilePic src={profileImage} onChange={handleProfileImageChange} />
+
+                  <button className={style.btn_register} type="submit">CREATE ACCOUNT</button>
+                  <p className={style.link}>Já possui uma conta?<a href="/"><span> Log In</span></a></p>
+
+                </Col>
+              </Row>
             </Form>
           </div>
         </Card.Body>

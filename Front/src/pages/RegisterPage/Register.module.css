@@ -12,13 +12,13 @@ body {
 }
 
 .body {
-  display: flex;
-  align-items: center;
-}
-
-.card_area {
-  margin-left: 72%;
+  padding: 5%;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
+}
+
+.card_area {
+  width: 100%;
 }

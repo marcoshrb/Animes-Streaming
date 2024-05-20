@@ -1,1 +1,1 @@
-export const SECRET = 'hghbbhgm'
+export const SECRET = 'ftynhfdnhhytdg'
