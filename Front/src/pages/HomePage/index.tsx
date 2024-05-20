@@ -29,10 +29,12 @@ export default function HomePage() {
                         <CarouselMovie />
                     </div>
                 </div>
-                <h1 className={style["Title-cards"]}>Populares</h1>
-                <div className={style["Cards"]}>
-                    <CardHome/>
-                    <CardHome/>
+                <div className={style["body-cards-home"]}>
+                    <h1 className={style["Title-cards"]}>Populares</h1>
+                    <div className={style["Cards"]}>
+                        <CardHome />
+                        <CardHome />
+                    </div>
                 </div>
             </div>
 
