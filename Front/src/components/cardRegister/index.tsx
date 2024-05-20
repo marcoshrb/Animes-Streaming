@@ -29,20 +29,23 @@ export default function CardRegister() {
   const handleProfileImageChange = (newSrc: string) => {
     setProfileImage(newSrc);
   };
-  async function handleSubmit() {
+  async function handleSubmit(e) {
 
+    e.preventDefault();
+    
     if (!formValid())
       return
-
+    
     const json = {
       name, email, password, confirmPassword
     }
-
+    
     const jsonCrypt = CryptoJS.AES.encrypt(JSON.stringify(json), SECRET).toString();
+    
     try {
-      var res = await axios.post('http://localhost:8080/user/register', {
-        jsonCrypt
-      })
+      var res = await axios.post("http://localhost:8080/user/register", 
+        {jsonCrypt}
+      )
 
       console.log(res)
 
@@ -52,7 +55,7 @@ export default function CardRegister() {
       setPassword('');
       setConfirmPassword('');
 
-      // navigate('../');
+      navigate('../');
 
     } catch (error) {
       console.log(error);
