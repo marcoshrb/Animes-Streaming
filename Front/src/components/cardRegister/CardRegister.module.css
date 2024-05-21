@@ -1,43 +1,41 @@
-body {
+.body_Card_Register {
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
 .card {
-    display: flex;
     background-color: rgba(217, 217, 217, 0.29);
     border-radius: 30px;
     border: none;
-    width: 160%;
-    height: 80%;
-    padding: 15%;
-    margin: 0 auto;
-    margin-right: 50%;
+    width: 100%;
+    height: 100%;
+    padding: 5%;
 }
 
-.card_body {
+.form{
+    width: 100%;
+}
+
+.Col-inputs{
     display: flex;
     flex-direction: column;
-}
-
-.card_content_wrapper {
-    display: flex;
-    flex: 1;
+    justify-content: space-between;
 }
 
 .input_form {
-    margin-bottom: 14%;
     color: aliceblue;
+    width: 100%;
 }
 
 .input_group {
+    width: 100%;
     border-top: none;
     border-right: none;
     border-left: none;
     border-color: orange;
     color: aliceblue;
     padding: 10px 10px 20px 10px;
-    width: 400px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 0%;
@@ -62,7 +60,7 @@ body {
     background-color: rgba(0, 0, 0, 0.70);
     border-radius: 0%;
     padding: 5%;
-    margin-top: 35%;
+    margin-top: 15%;
 }
 
 .btn_register:hover {
@@ -72,7 +70,7 @@ body {
 }
 
 .link {
-    margin-top: 20%;
+    margin-top: 2%;
     color: aliceblue;
     font-size: small;
 }
@@ -85,7 +83,7 @@ span {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 30%;
+    
 }
 
 .right_components_inner {

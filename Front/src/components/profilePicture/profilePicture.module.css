@@ -4,6 +4,7 @@
     border-radius: 50%;   
     overflow: hidden;   
     cursor: pointer;
+    background-color: rgba(217, 217, 217, 35% );
   }
   
   .profile_pic {

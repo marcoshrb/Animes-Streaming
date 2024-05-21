@@ -1,0 +1,29 @@
+.card-Home
+{
+    display: flex;
+    flex-direction: column;
+    width: 190px;
+    margin-left: 2vw;
+    margin-top: 2vh;    
+}
+.body-card
+{
+    background-color: rgba(71, 69, 69, 0.5);
+    box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.3); 
+    min-height: 250px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body-card:hover
+{
+    box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.3); 
+}
+
+.Title
+{
+    color: white;
+    margin-top: 10px;
+}

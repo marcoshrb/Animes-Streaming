@@ -61,11 +61,12 @@ class UserController {
 
     static async register(req, res) {
         try {
-            // var bytes = CryptoJS.AES.decrypt(req.body.jsonCrypt, process.env.SECRET);
-            // const decryptd = bytes.toString(CryptoJS.enc.Utf8);
-            // const json = JSON.parse(decryptd);
+
+            var bytes = CryptoJS.AES.decrypt(req.body.jsonCrypt, process.env.SECRET);
+            const decryptd = bytes.toString(CryptoJS.enc.Utf8);
+            const json = JSON.parse(decryptd);
             
-            const { name, email, password, confirmPassword } = req.body;
+            const { name, email, password, confirmPassword } = json;
             
             if (!name || !email || !password || !confirmPassword) {
                 return res.status(400).json({ message: "Todos os campos são obrigatórios." });
@@ -85,7 +86,7 @@ class UserController {
                 }
                 
                 if (results.length > 0) {
-                    return res.status(422).send({ message: "E-mail já cadastrado." });
+                    return res.status(500).send({ message: "E-mail já cadastrado." });
                 }
                 
                 const user = {

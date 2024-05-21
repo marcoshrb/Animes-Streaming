@@ -11,6 +11,7 @@ import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import AdmPage from './pages/AdmPage';
 import CatalogAdmPage from './pages/CatalogAdmPage';
+import AddFilme from './pages/AddFilme';
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,11 @@ const router = createBrowserRouter([
   {
     path: "/catalog",
     element: <CatalogAdmPage/>
-  }
+  },
+  {
+    path: "/AddMovie",
+    element: <AddFilme/>
+  },  
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

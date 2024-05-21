@@ -10,17 +10,13 @@ import CardRegister from "../../components/cardRegister";
 export default function RegisterPage() {
     return (
         <>
-        <Container>
-            <div className={style.body}>
-                <Row className="justify-content-center">
-                    <Col xs={8} md={12}>
-                        <div className={style.card_area}>
-                            <CardRegister />
-                        </div>
-                    </Col>
-                </Row>
-            </div>
-        </Container>
+            <Container>
+                <div className={style.body}>
+                    <div className={style.card_area}>
+                        <CardRegister />
+                    </div>
+                </div>
+            </Container>
         </>
     );
 }
