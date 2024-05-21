@@ -92,8 +92,8 @@ class videoController {
                 return res.status(422).send({ message: "Video não encontrado." });
             }
 
-            const user = results[0];
-            return res.status(200).send({ User : user });
+            const video = results[0];
+            return res.status(200).send( video );
             
         });
     }

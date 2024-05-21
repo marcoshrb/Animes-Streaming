@@ -43,7 +43,6 @@ export default function HomePage() {
                     <h1 className={style["Title-cards"]}>Populares</h1>
                     <div className={style["Cards"]}>
                         <CardHome />
-                        <CardHome />
                     </div>
                 </div>
             </div>

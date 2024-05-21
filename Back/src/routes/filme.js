@@ -5,7 +5,7 @@ const route = express.Router();
 route
     .post('/', filmeController.create)
     .delete('/remove/:id', filmeController.remove)
-    .get('/register', filmeController.GetAll)
-    .get('/register', filmeController.GetById)
+    .get('/getAll', filmeController.GetAll)
+    .get('/getById/:id', filmeController.GetById)
 
 module.exports = route;

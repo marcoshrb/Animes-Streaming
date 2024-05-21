@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     element: <RegisterPage/>,
   },
   {
-    path: "/video",
+    path: "/video/:name",
     element: <VideoPage/>
   },
   {

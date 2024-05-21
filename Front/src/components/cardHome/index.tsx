@@ -1,23 +1,73 @@
-//styles
-import style from "./cardHome.module.css"
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import axios from 'axios';
 
-import { UserIdContext } from "../../context/UserId";
-import { useContext } from "react";
+import style from "./cardHome.module.css";
 
 export default function CardHome() {
+    const [videos, setVideos] = useState([]);
+    const [filmes, setFilmes] = useState([]);
 
-    const { idUser, setIdUser} = useContext(UserIdContext);
+    useEffect(() => {
+        ResFilmesBack();
+    }, []);
+
+    async function ResFilmesBack() {
+        try {
+            const res = await axios.get("http://localhost:8080/filme/getAll");
+            if (res.data && res.data.filmes) {
+                setVideos(res.data.filmes);
+
+                const filmesDetails = await Promise.all(res.data.filmes.map(async (video) => {
+                    const videoDetails = await ResVideosBack(video.VideoId);
+
+                    return {
+                        titulo: videoDetails.Titulo,
+                        url: videoDetails.URL
+                    };
+                }));
+
+                setFilmes(filmesDetails);
+            } else {
+                console.log("Resposta da API inesperada:", res);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async function ResVideosBack(videoId) {
+        try {
+            const res = await axios.get(`http://localhost:8080/video/GetById/${videoId}`);
+            if (res.data) {
+                return res.data;
+            } else {
+                console.log("Resposta da API inesperada:", res);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <>
-            <div className={style["card-Home"]}>
-                <div className={style["body-card"]}>
-                    
-                </div>
-                <p className={style["Title"]}>
-                    Titulo
-                </p>
-            </div>
+            {filmes.length > 0 ? (
+                filmes.map((filme, index) => (
+                    <div key={index} className={style["card-Home"]}>
+                        <Link className={style["links"]} to={`/video/${filme.titulo}`}>
+                            <div className={style["body-card"]}>
+                                <p>{filme.url}</p>
+                            </div>
+                            <p className={style["Title"]}>
+                                {filme.titulo}
+                            </p>
+                        </Link>
+                    </div>
+                ))
+            ) : (
+                <p>Carregando...</p>
+            )}
         </>
+        
     );
 }

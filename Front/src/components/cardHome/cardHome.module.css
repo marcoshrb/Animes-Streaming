@@ -27,3 +27,8 @@
     color: white;
     margin-top: 10px;
 }
+.links
+{
+    text-decoration: none;
+    cursor: pointer;
+}
