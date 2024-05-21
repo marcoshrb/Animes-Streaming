@@ -1,22 +1,32 @@
+//react features 
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
 //styles
 import style from "./HomePage.module.css"
 
 //internal components
 import CarouselMovie from "../../components/carouselMovie";
-import NavBar from "../../components/navBar";
 import NavBarComponent from "../../components/Navbar2";
 import movieCard from "../../components/cardMovie";
 import CardHome from "../../components/cardHome";
 
 export default function HomePage() {
 
-    // const getMovies = (movies: any)=> {
-    //     return (
-    //         <div className={style.cardDeck}>
-    //             movies.map(movie => <movieCard key={movie.id} movie={movie}/>)
-    //         </div>
-    //     )
-    // }
+    const [videos, setVideos] = useState([]);
+
+    useEffect(() => {
+        fetchVideos();
+    }, []);
+
+    const fetchVideos = async () => {
+        try {
+
+        }
+        catch(error) {
+            console.error("Erro ao buscar título", error)
+        }
+    }
 
     return (
         <>

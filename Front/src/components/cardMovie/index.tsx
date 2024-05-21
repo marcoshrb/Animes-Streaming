@@ -1,7 +1,6 @@
-import React from "react"
-import 
+import PropTypes from 'prop-types';
 
-const movieCard = (props:any) => (
+const MovieCard = (props: any) =>  (
     <div className="movie-card">
         <div className="movie-card card">
             <img className="card-img-top" src={props.movie.imageUrl} alt="" />
@@ -12,22 +11,28 @@ const movieCard = (props:any) => (
             </div>
             <div className="card-footer">
                 <div className="clearfix">
-                    <div className="float-left mt-1">
-                        {/* <StarRating rating={props.movie.rating} /> */}
-                    </div>
-                    <div className="card-footer-badge float-right badge badge-primary badge-pill">{props.movie.rating}</div>
                 </div>
             </div>
         </div>
     </div>
 );
 
-movieCard.defaultProps = {
-    movie: {}
+MovieCard.defaultProps = {
+    movie: {
+        imageUrl: '',
+        title: 'Default Title',
+        subtitle: 'Default Subtitle',
+        description: 'Default Description',
+    }
 };
 
-movieCard.propTypes = {
-    movie: {}
+MovieCard.propTypes = {
+    movie: PropTypes.shape({
+        imageUrl: PropTypes.string,
+        title: PropTypes.string,
+        subtitle: PropTypes.string,
+        description: PropTypes.string
+    })
 };
 
-export default movieCard;
+export default MovieCard;

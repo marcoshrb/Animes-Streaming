@@ -12,6 +12,7 @@ import HomePage from './pages/HomePage';
 import AdmPage from './pages/AdmPage';
 import CatalogAdmPage from './pages/CatalogAdmPage';
 import AddFilme from './pages/AddFilme';
+import UserList from './pages/UserListPage';
 import { UserIdProvider } from './context/UserId';
 
 const router = createBrowserRouter([
@@ -42,7 +43,11 @@ const router = createBrowserRouter([
   {
     path: "/AddMovie",
     element: <AddFilme/>
-  },  
+  }, 
+  {
+    path: "/user_list",
+    element: <UserList/>
+  } 
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
