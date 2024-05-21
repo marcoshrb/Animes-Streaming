@@ -9,11 +9,11 @@ class UserController {
 
     static async login(req, res) {
 
-        // var bytes = CryptoJS.AES.decrypt(req.body.jsonCrypt, process.env.SECRET);
-        // const decryptd = bytes.toString(CryptoJS.enc.Utf8);
-        // const json = JSON.parse(decryptd);
+        var bytes = CryptoJS.AES.decrypt(req.body.jsonCrypt, process.env.SECRET);
+        const decryptd = bytes.toString(CryptoJS.enc.Utf8);
+        const json = JSON.parse(decryptd);
 
-        const { login, password } = req.body;
+        const { login, password } = json;
 
         if (!login)
             return res.status(422).json({ message: "O login é obrigatório." });
@@ -51,7 +51,7 @@ class UserController {
                     },
                 );
 
-                return res.status(200).send({ token });
+                return res.status(200).send({ token, userId: user.Id });
             } catch (error) {
                 console.error(error);
                 return res.status(500).send({ message: "Erro ao gerar o token JWT." });

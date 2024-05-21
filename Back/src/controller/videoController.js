@@ -7,6 +7,7 @@ class videoController {
         try {
             
             const { Titulo, Descricao, URL } = req.body;
+            console.log(req.body)
             
             if (!Titulo || !Descricao || !URL ) {
                 return res.status(400).json({ message: "Todos os campos são obrigatórios." });
@@ -33,8 +34,14 @@ class videoController {
                         console.error(error);
                         return res.status(500).send({ message: "Erro ao cadastrar o video." });
                     }
-                    return res.status(201).send({ message: "Video cadastrado com sucesso." });
+                
+                    const videoId = results.insertId;
+                    return res.status(201).send({ 
+                        message: "Video cadastrado com sucesso.",
+                        videoId: videoId
+                    });
                 });
+                
             });
         } catch (error) {
             console.error(error);

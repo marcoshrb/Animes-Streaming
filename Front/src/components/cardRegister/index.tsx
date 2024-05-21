@@ -110,6 +110,7 @@ export default function CardRegister() {
                       type="text"
                       placeholder="Username:"
                       className={style.input_group}
+                      value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
                     <label htmlFor="floatingInputCustom">Username:</label>
@@ -120,6 +121,7 @@ export default function CardRegister() {
                       type="email"
                       placeholder="Email:"
                       className={style.input_group}
+                      value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
                     <label htmlFor="floatingInputCustom">Email:</label>
@@ -130,6 +132,7 @@ export default function CardRegister() {
                       type="password"
                       placeholder="Password:"
                       className={style.input_group}
+                      value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
                     <label htmlFor="floatingInputCustom">Password:</label>
@@ -140,6 +143,7 @@ export default function CardRegister() {
                       type="password"
                       placeholder="ConfirmPassword:"
                       className={style.input_group}
+                      value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                     <label htmlFor="floatingInputCustom">Confirm Password:</label>
@@ -149,7 +153,7 @@ export default function CardRegister() {
                   <ProfilePic src={profileImage} onChange={handleProfileImageChange} />
 
                   <button className={style.btn_register} type="submit">CREATE ACCOUNT</button>
-                  <p className={style.link}>Já possui uma conta?<a href="/"><span> Log In</span></a></p>
+                  <p className={style.link}>Já possui uma conta? <a href="/"><span>Log In</span></a></p>
 
                 </Col>
               </Row>

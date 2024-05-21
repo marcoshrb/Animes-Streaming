@@ -26,7 +26,6 @@ class Comentario {
                 console.log(error.message);
                 return;
             }
-            console.log("Tabela de Comentario criada com sucesso!");
         });
     }
 }

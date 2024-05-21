@@ -71,10 +71,12 @@
 
 .link {
     margin-top: 2%;
-    color: aliceblue;
+    color: rgb(255, 141, 0);
     font-size: small;
 }
-
+a {
+    color : rgb(255, 141, 0);
+}
 span {
     color: orange;
 }

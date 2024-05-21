@@ -24,7 +24,6 @@ class Video {
                 console.log(error.message);
                 return;
             }
-            console.log("Tabela de Video criada com sucesso!");
         });
     }
 }

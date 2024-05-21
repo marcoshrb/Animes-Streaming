@@ -25,7 +25,6 @@ class User {
                 console.log(error.message);
                 return;
             }
-            console.log("Tabela de User criada com sucesso!");
         });
     }
 }

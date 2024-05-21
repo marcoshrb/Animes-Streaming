@@ -12,6 +12,7 @@ import HomePage from './pages/HomePage';
 import AdmPage from './pages/AdmPage';
 import CatalogAdmPage from './pages/CatalogAdmPage';
 import AddFilme from './pages/AddFilme';
+import { UserIdProvider } from './context/UserId';
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserIdProvider>
+      <RouterProvider router={router} />
+    </UserIdProvider>
   </React.StrictMode>,
 )

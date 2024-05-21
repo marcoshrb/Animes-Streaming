@@ -11,8 +11,8 @@ class Serie {
         const sql =
             `
             create table if not exists Serie (
-                Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT
-                Nome varchar(255) not null,
+                Id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+                Nome varchar(255) not null
             );
             `;
 
@@ -22,7 +22,6 @@ class Serie {
                 console.log(error.message);
                 return;
             }
-            console.log("Tabela de Serie criada com sucesso!");
         });
     }
 }

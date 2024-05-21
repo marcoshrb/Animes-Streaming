@@ -27,7 +27,6 @@ class SerieEp {
                 console.log(error.message);
                 return;
             }
-            console.log("Tabela de Serie-Ep criada com sucesso!");
         });
     }
 }

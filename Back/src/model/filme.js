@@ -23,7 +23,6 @@ class Filme {
                 console.log(error.message);
                 return;
             }
-            console.log("Tabela de Filme criada com sucesso!");
         });
     }
 }

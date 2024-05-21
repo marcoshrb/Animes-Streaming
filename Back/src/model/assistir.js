@@ -25,7 +25,6 @@ class Assistir {
                 console.log(error.message);
                 return;
             }
-            console.log("Tabela de Assistir criada com sucesso!");
         });
     }
 }
