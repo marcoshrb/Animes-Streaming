@@ -8,6 +8,7 @@ body{
    display: flex;
    flex-direction: column;
    justify-content: start;
+   align-items: center;
 }
 
 .carousel_area {
@@ -22,9 +23,12 @@ body{
 .div-carousel{
     width: 70%;
 }
+.body-cards-home{
+    
+    width: 70%;
+}
 .Title-cards{
     color: white;
-    margin-left: 2vw;
     margin-top: 2vh;
 }
 .Cards{

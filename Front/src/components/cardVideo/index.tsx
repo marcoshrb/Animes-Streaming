@@ -28,6 +28,7 @@ function CardVideo() {
                         </div>
                     </div>
                 </div>
+                
                 <div>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident reiciendis sit, ducimus, ipsa repudiandae soluta sequi laborum voluptas doloribus incidunt ut magni ab nostrum vero fugiat. Eaque porro cum quia!
                 </div>

@@ -1,0 +1,9 @@
+::-webkit-scrollbar {
+    width: 10px;  /* Largura da barra de rolagem */
+}
+
+/* Para navegadores que suportam a propriedade scrollbar */
+* {
+    scrollbar-width: thin;  /* Largura da barra de rolagem */
+    scrollbar-color: #000000  rgb(255, 141, 0);   /* Cor do polegar e do trilho */
+}
