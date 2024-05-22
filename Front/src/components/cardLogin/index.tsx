@@ -97,7 +97,7 @@ function CardLogin() {
                       className={style.input_group}
                       onChange={(e) => setLogin(e.target.value)}
                     />
-                    <label htmlFor="floatingInputCustom">User or Email:</label>
+                    <label htmlFor="floatingInputCustom">Email:</label>
                   </Form.Floating>
                   <Form.Floating className={style.input_form} style={{ width: '70%', marginTop: '10%' }}>
                     <Form.Control

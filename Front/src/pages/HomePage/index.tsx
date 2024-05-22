@@ -13,21 +13,6 @@ import CardHome from "../../components/cardHome";
 
 export default function HomePage() {
 
-    const [videos, setVideos] = useState([]);
-
-    useEffect(() => {
-        fetchVideos();
-    }, []);
-
-    const fetchVideos = async () => {
-        try {
-
-        }
-        catch(error) {
-            console.error("Erro ao buscar título", error)
-        }
-    }
-
     return (
         <>
             <div className={style.body_Home_page}>

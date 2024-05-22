@@ -85,7 +85,7 @@ class ComentarioController {
         if (!id)
             return res.status(400).send({ message: "Nenhum ID fornecido." });
 
-        conexao.query('SELECT * FROM Comentario WHERE Id = ?', [id], async (error, results) => {
+        conexao.query('SELECT * FROM Comentario WHERE VideoId = ?', [id], async (error, results) => {
             if (error) {
                 console.error(error);
                 return res.status(500).send({ message: "Erro ao realizar a consulta." });
