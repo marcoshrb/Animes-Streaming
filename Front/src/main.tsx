@@ -1,10 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import './index.css'
+import './index.css';
 import RegisterPage from './pages/RegisterPage';
 import VideoPage from './pages/VideoPage';
 import LoginPage from './pages/LoginPage';
@@ -14,46 +14,74 @@ import CatalogAdmPage from './pages/CatalogAdmPage';
 import AddFilme from './pages/AddFilme';
 import UserList from './pages/UserListPage';
 import { UserIdProvider } from './context/UserId';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './ProtectedRoute';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LoginPage/>,
+    element: <LoginPage />,
   },
   {
     path: "/register",
-    element: <RegisterPage/>,
+    element: <RegisterPage />,
   },
   {
     path: "/video/:TitleVideo",
-    element: <VideoPage/>
+    element: (
+      <ProtectedRoute>
+        <VideoPage />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/home",
-    element: <HomePage/>
+    element: (
+      <ProtectedRoute>
+        <HomePage />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/home_adm",
-    element: <AdmPage/>
+    element: (
+      <ProtectedRoute>
+        <AdmPage />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/catalog",
-    element: <CatalogAdmPage/>
+    element: (
+      <ProtectedRoute>
+        <CatalogAdmPage />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/AddMovie",
-    element: <AddFilme/>
-  }, 
+    element: (
+      <ProtectedRoute>
+        <AddFilme />
+      </ProtectedRoute>
+    ),
+  },
   {
     path: "/user_list",
-    element: <UserList/>
-  } 
+    element: (
+      <ProtectedRoute>
+        <UserList />
+      </ProtectedRoute>
+    ),
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <UserIdProvider>
-      <RouterProvider router={router} />
-    </UserIdProvider>
+    <AuthProvider>
+      <UserIdProvider>
+        <RouterProvider router={router} />
+      </UserIdProvider>
+    </AuthProvider>
   </React.StrictMode>,
-)
+);
