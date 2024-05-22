@@ -10,11 +10,11 @@ function CarouselMovie() {
   return (
     <Carousel>
       <Carousel.Item interval={10000}>
-        <img className={style.img_c}  width={"920"} height={"400px"} src='https://img.freepik.com/fotos-gratis/uma-pintura-de-um-lago-de-montanha-com-uma-montanha-ao-fundo_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1715472000&semt=ais_user'/>
+        <img className={style.img_c}  width={"920"} height={"400px"} src='../../../src/assets/img/atck.jpg'/>
         <Carousel.Caption>
           <div className={style["Titles-carosel"]}>
             <div>
-              <h3>Title</h3>
+              <h3 className={style.title}>Attack on Titan</h3>
             </div>
             <button className={style["button-assistir-agora"]}>ASSISTIR AGORA <img src={playIcon} className={style["play-icon"]}></img></button>
           </div>
@@ -22,11 +22,11 @@ function CarouselMovie() {
       </Carousel.Item>
 
       <Carousel.Item interval={10000}>
-        <img className={style.img_c}  width={"920"} height={"400px"} src='https://img.freepik.com/fotos-gratis/uma-pintura-de-um-lago-de-montanha-com-uma-montanha-ao-fundo_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1715472000&semt=ais_user'/>
+        <img className={style.img_c}  width={"920"} height={"400px"} src='../../../src/assets/img/jojo.jpg'/>
         <Carousel.Caption>
           <div className={style["Titles-carosel"]}>
             <div>
-              <h3>Title</h3>
+              <h3 className={style.title}>Jojo's Bizarre Adventure</h3>
             </div>
             <button className={style["button-assistir-agora"]}>ASSISTIR AGORA <img src={playIcon} className={style["play-icon"]}></img></button>
           </div>
@@ -34,11 +34,11 @@ function CarouselMovie() {
       </Carousel.Item>
       
       <Carousel.Item interval={10000}>
-        <img className={style.img_c}  width={"920"} height={"400px"} src='https://img.freepik.com/fotos-gratis/uma-pintura-de-um-lago-de-montanha-com-uma-montanha-ao-fundo_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1715472000&semt=ais_user'/>
+        <img className={style.img_c}  width={"920"} height={"400px"} src='../../../src/assets/img/jjk.png'/>
         <Carousel.Caption>
           <div className={style["Titles-carosel"]}>
             <div>
-              <h3>Title</h3>
+              <h3 className={style.title}>Jujutsu Kaisen</h3>
             </div>
             <button className={style["button-assistir-agora"]}>ASSISTIR AGORA <img src={playIcon} className={style["play-icon"]}></img></button>
           </div>

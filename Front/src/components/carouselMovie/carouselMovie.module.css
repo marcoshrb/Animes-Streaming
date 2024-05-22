@@ -1,19 +1,27 @@
-.img_c{
-    box-shadow: inset 100 1000 100px rgba(0, 0, 0, 0.827);
+.img_c {
+    box-shadow: inset 10px 10px 100px rgba(0, 0, 0, 0.827);
     min-width: 100%;
+    transition: box-shadow 0.3s ease-in-out; /* Adiciona transição */
 }
-.button-assistir-agora{
-    background-color: rgb(255,141,0);
-    border: 0cm;
+
+.img_c:hover {
+    box-shadow: inset 10px 10px 100px rgba(255, 141, 0, 0.827); /* Nova cor da sombra no hover */
+}
+
+.button-assistir-agora {
+    background-color: rgb(255, 141, 0);
+    border: 0;
     padding: 8px;
     display: flex;
     align-items: center;
-   
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
-.button-assistir-agora:hover{
+
+.button-assistir-agora:hover {
     background-color: black;
-    color: white;
+    color: orange;
 }
+
 .play-icon{
     margin-left: 10px;
     height: 18px;
@@ -23,4 +31,11 @@
     flex-direction: column;
     align-items: flex-end;
     left: 0;
+}
+
+.title{
+    color: rgb(240, 240, 240);
+    text-shadow: 2px 2px 2px rgb(0, 0, 0); /* Sombra de texto */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Sombra de caixa */
+    padding: 10px; /* Adicionando preenchimento */
 }

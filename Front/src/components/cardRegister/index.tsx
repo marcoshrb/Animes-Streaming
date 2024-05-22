@@ -21,6 +21,7 @@ import axios from 'axios';
 export default function CardRegister() {
 
   const [profileImage, setProfileImage] = useState('');
+  const [userId, setUserId] = useState<number | null>(null);
   var [name, setName] = useState('');
   var [email, setEmail] = useState('');
   var [password, setPassword] = useState('');
@@ -51,18 +52,27 @@ export default function CardRegister() {
 
       console.log(res)
 
-      console.log(res.data.message);
-      setName('');
-      setEmail('');
-      setPassword('');
-      setConfirmPassword('');
+      if (res.status === 201) {
+        const newUserId = res.data.userId;
+        setUserId(newUserId);
 
-      navigate('../');
+        if (profileImage) {
+          // handleProfileImageChange function to upload the image
+          handleProfileImageChange(profileImage);
+        }
 
+        console.log(res.data.message);
+        setName('');
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
+
+        navigate('../');
+      }
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   function formValid() {
 
@@ -150,7 +160,7 @@ export default function CardRegister() {
                   </Form.Floating>
                 </Col>
                 <Col  xs={12} sm={6} className={style.right_components}>
-                  <ProfilePic src={profileImage} onChange={handleProfileImageChange} />
+                  <ProfilePic src={profileImage} userId={userId} onChange={handleProfileImageChange} />
 
                   <button className={style.btn_register} type="submit">CREATE ACCOUNT</button>
                   <p className={style.link}>Já possui uma conta? <a href="/"><span>Log In</span></a></p>

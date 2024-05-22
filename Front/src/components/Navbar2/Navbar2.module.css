@@ -5,3 +5,11 @@
     text-align: center;
     z-index: 1000;
 }
+
+.drop{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-right: 5%;
+   color: orange;
+}
