@@ -66,12 +66,8 @@ export default function CardRegister() {
 
   function formValid() {
 
-    if (!name.includes(' ')) {
-      console.log('Insira nome e sobrenome')
-      return false;
-    }
     if (name.length < 5) {
-      console.log('Insira um nome e sobrenome válidos')
+      console.log('Insira um username válido')
       return false;
     }
     if (!email.includes('@')) {

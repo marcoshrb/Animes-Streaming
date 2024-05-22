@@ -7,5 +7,7 @@ route
     .delete('/remove/:id', videoController.remove)
     .get('/GetAll', videoController.GetAll)
     .get('/GetById/:id', videoController.GetById)
+    .get('/GetByTitle/:TitleVideo', videoController.GetByTitle)
+    
 
 module.exports = route;

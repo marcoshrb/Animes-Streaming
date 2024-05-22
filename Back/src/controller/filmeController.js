@@ -87,6 +87,29 @@ class FilmeController {
             
         });
     }
+
+    static async GetByVideoId(req, res) {
+
+        const { VideoId } = req.params;
+
+        if (!VideoId)
+            return res.status(400).send({ message: "Nenhum id de video fornecido." });
+
+        conexao.query('SELECT * FROM Filme WHERE VideoId = ?', [VideoId], async (error, results) => {
+            if (error) {
+                console.error(error);
+                return res.status(500).send({ message: "Erro ao realizar a consulta." });
+            }
+
+            if (results.length === 0) {
+                return res.status(422).send({ message: "Registro de id de video não encontrado." });
+            }
+
+            const videoId = results[0];
+            return res.status(200).send({ videoId: videoId });
+            
+        });
+    }
 }
 
 module.exports = FilmeController;

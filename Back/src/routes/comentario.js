@@ -5,7 +5,7 @@ const route = express.Router();
 route
     .post('/', comentarioController.create)
     .delete('/remove/:id', comentarioController.remove)
-    .get('/register', comentarioController.GetAll)
-    .get('/register', comentarioController.GetById)
+    .get('/GetAll', comentarioController.GetAll)
+    .get('/GetById/:id', comentarioController.GetById)
 
 module.exports = route;

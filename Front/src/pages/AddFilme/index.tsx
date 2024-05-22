@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 //internal components
 import NavBarComponent from "../../components/Navbar2";
 import { useState } from "react";
+import TestVideo from "../../assets/videos/2890236-hd_1920_1080_30fps.mp4"
 
 // axios
 import { useNavigate } from 'react-router-dom';
@@ -19,7 +20,7 @@ export default function AddFilme() {
 
     var [title, setTitle] = useState('');
     var [desc, setDesc] = useState('');
-    var [url, setUrl] = useState('kkkkkkkkkkkkkkkkkkkkk.com');
+    var [url, setUrl] = useState(TestVideo);
     
     var [videoId, setVideoId] = useState('');
 
