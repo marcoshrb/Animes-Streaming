@@ -30,6 +30,12 @@ export default function HomePage() {
                         <CardHome />
                     </div>
                 </div>
+                <div className={style["body-cards-home"]}>
+                    <h1 className={style["Title-cards"]}>Filmes</h1>
+                    <div className={style["Cards"]}>
+                        <CardHome />
+                    </div>
+                </div>
             </div>
 
         </>

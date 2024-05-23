@@ -9,7 +9,7 @@ import { UserIdContext } from "../../context/UserId";
 
 function Coments({ VideoId }: any) {
   const { idUser } = useContext(UserIdContext);
-  const [comentarios, setComentarios] = useState<any[]>([]);
+  const [comentarios, setComentarios] = useState([]);
   const [newComentarios, setNewComentarios] = useState('');
 
   useEffect(() => {
@@ -48,16 +48,22 @@ function Coments({ VideoId }: any) {
       if (Array.isArray(res.data)) {
         console.log("Comentários recebidos:", res.data);
         setComentarios(res.data);
-        // console.log(comentarios)
+        console.log(res.data)
       } else {
         console.log("Resposta da API inesperada:", res);
-        // setComentarios([]); 
+        setComentarios([]); 
       }
+
     } catch (error) {
       console.log("Erro ao buscar comentários:", error);
       setComentarios([]);  
     }
   }
+
+  useEffect(() => {
+    GetComent();
+    console.log("comentarios:", comentarios);
+  }, [VideoId]);
 
   async function DeleteComent(comentarioId: any) {
     try {

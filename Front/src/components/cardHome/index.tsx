@@ -4,6 +4,8 @@ import axios from 'axios';
 
 import style from "./cardHome.module.css";
 
+import capaDefault from "../../assets/img/Kimetsu.png"
+
 export default function CardHome() {
     const [videos, setVideos] = useState([]);
     const [filmes, setFilmes] = useState([]);
@@ -56,7 +58,7 @@ export default function CardHome() {
                     <div key={index} className={style["card-Home"]}>
                         <Link className={style["links"]} to={`/video/${filme.titulo}`}>
                             <div className={style["body-card"]}>
-                                <p>{filme.url}</p>
+                                <img className={style["capa"]} src={capaDefault}></img>
                             </div>
                             <p className={style["Title"]}>
                                 {filme.titulo}

@@ -16,6 +16,10 @@
     justify-content: center;
     align-items: center;
 }
+.capa{
+    height: 100%;
+    width: 100%;
+}
 
 .body-card:hover
 {

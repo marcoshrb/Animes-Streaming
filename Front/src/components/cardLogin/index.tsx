@@ -18,11 +18,10 @@ import axios from 'axios';
 
 import { UserIdContext } from "../../context/UserId";
 import AuthContext from '../../context/AuthContext';
-import { Message } from "@mui/icons-material";
 
 function CardLogin() {
 
-  const { idUser, setIdUser} = useContext(UserIdContext);
+  const { setIdUser } = useContext(UserIdContext);
 
   const [profileImage, setProfileImage] = useState('');
   const [ Login, setLogin] = useState('');
