@@ -8,15 +8,35 @@ import { useContext, useEffect, useState } from "react";
 import { UserIdContext } from "../../context/UserId";
 
 function Coments({ VideoId }: any) {
+
   const { idUser } = useContext(UserIdContext);
   const [comentarios, setComentarios] = useState([]);
   const [newComentarios, setNewComentarios] = useState('');
 
   useEffect(() => {
     GetComent();
-  }, [VideoId]);
+  }, []);
+
+  async function GetName() {
+    try {
+      const res = await axios.get(`http://localhost:8080/comentario/GetById/${idUser}`);
+      
+      if (res.data && res.data.Comentarios) {
+        console.log("Comentários recebidos:", res.data.Comentarios);
+        setComentarios(res.data.Comentarios);
+      } else {
+        console.log("Resposta da API inesperada:", res);
+        setComentarios([]); 
+      }
+  
+    } catch (error) {
+      console.log("Erro ao buscar comentários:", error);
+      setComentarios([]);  
+    }
+  }
 
   async function CreateComent(event) {
+    
     event.preventDefault();
 
     const json = {
@@ -24,8 +44,6 @@ function Coments({ VideoId }: any) {
       VideoId: VideoId,
       Conteudo: newComentarios  
     };
-
-    console.log("JSON: ", json);
 
     try {
       const res = await axios.post(`http://localhost:8080/comentario`, json);
@@ -45,15 +63,14 @@ function Coments({ VideoId }: any) {
     try {
       const res = await axios.get(`http://localhost:8080/comentario/GetById/${VideoId}`);
       
-      if (Array.isArray(res.data)) {
-        console.log("Comentários recebidos:", res.data);
-        setComentarios(res.data);
-        console.log(res.data)
+      if (res.data && res.data.Comentarios) {
+        console.log("Comentários recebidos:", res.data.Comentarios);
+        setComentarios(res.data.Comentarios);
       } else {
         console.log("Resposta da API inesperada:", res);
         setComentarios([]); 
       }
-
+  
     } catch (error) {
       console.log("Erro ao buscar comentários:", error);
       setComentarios([]);  

@@ -138,6 +138,27 @@ class UserController {
             return res.status(200).send({ users: results });
         });
     }
+
+    static async GetById(req, res) {
+        const { id } = req.params;
+    
+        if (!id)
+            return res.status(400).send({ message: "Nenhum ID fornecido." });
+    
+        conexao.query('SELECT * FROM Usuario WHERE Id = ?', [id], async (error, result) => {
+            if (error) {
+                console.error(error);
+                return res.status(500).send({ message: "Erro ao realizar a consulta." });
+            }
+    
+            if (result.length === 0) {
+                return res.status(422).send({ message: "Nenhum usuario encontrado para este ID." });
+            }
+    
+            return res.status(200).send({ user: result });
+            
+        });
+    }
 }
 
 module.exports = UserController;

@@ -48,6 +48,7 @@ function CardVideo({ video } : any) {
                     <img className={style['Icon-comments']} src={CommentsWhite} />
                     <h1 className={style["Titles"]}> ● Comentários</h1>
                 </div>
+                <hr />
                 <div className={style["coments-div"]}>
                     <Coments VideoId={video.Id}/>
                 </div>
