@@ -1,4 +1,6 @@
 const express = require('express');
+const multer = require('multer');
+const path = require('path');
 const app = express();
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -17,9 +19,29 @@ const SerieEp = require("./src/model/serie_episodio");
 const Serie = require("./src/model/serie");
 const Video = require("./src/model/video");
 
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'upload/'); // Diretório onde as imagens serão salvas
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({ storage: storage });
+
 app.use(cors({
   origin: '*'
 }));
+
+app.use('/upload', express.static(path.join(__dirname, 'upload'))); // Serve os arquivos estáticos da pasta uploads
+
+// Adicionar endpoint para upload
+app.post('/upload', upload.single('image'), (req, res) => {
+  const fotoController = require('./path/to/your/fotoController'); // Ajuste o caminho conforme necessário
+  fotoController.upload(req, res);
+});
 
 User.init(conexao);
 Assistir.init(conexao);

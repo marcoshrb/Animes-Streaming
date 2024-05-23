@@ -1,28 +1,38 @@
-
 //react features
 import React, { useState } from 'react';
+import axios from 'axios';
 
 //styles
 import style from "./profilePicture.module.css"
 
 interface ProfilePictureProps {
   src: string;
+  userId: number; // Adicionar userId como prop
   onChange: (newSrc: string) => void; 
 }
 
-const ProfilePicture: React.FC<ProfilePictureProps> = ({ src, onChange }) => {
+const ProfilePicture: React.FC<ProfilePictureProps> = ({ src, userId, onChange }) => {
   const [selectedImage, setSelectedImage] = useState(src);
 
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const newSrc = reader.result as string;
+      const formData = new FormData();
+      formData.append('image', file);
+      formData.append('userId', userId.toString());
+
+      try {
+        const response = await axios.post(`http://localhost:8080/upload`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+        const newSrc = response.data.imageUrl;
         setSelectedImage(newSrc);
-        onChange(newSrc); 
-      };
-      reader.readAsDataURL(file);
+        onChange(newSrc);
+      } catch (error) {
+        console.error('Erro ao fazer upload da imagem:', error);
+      }
     }
   };
 

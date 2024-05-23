@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 // styles
 import style from "./UserList.module.css"
 
@@ -5,19 +8,33 @@ import style from "./UserList.module.css"
 import { Container, Row, Col, Card, Form } from 'react-bootstrap';
 import SearchIcon from '@mui/icons-material/Search';
 
-
 // internal components
 import NavBarComponent from "../../components/Navbar2";
+import ProfilePicture from "../../components/profilePicture";
 
 export default function UserList() {
-    const users = [
-        { title: "Card Title 1", text: "Some quick example text to build on the card title and make up the bulk of the card's content." },
-        { title: "Card Title 2", text: "Some quick example text to build on the card title and make up the bulk of the card's content." },
-        { title: "Card Title 3", text: "Some quick example text to build on the card title and make up the bulk of the card's content." },
-        { title: "Card Title 4", text: "Some quick example text to build on the card title and make up the bulk of the card's content." },
-        { title: "Card Title 5", text: "Some quick example text to build on the card title and make up the bulk of the card's content." },
-        { title: "Card Title 6", text: "Some quick example text to build on the card title and make up the bulk of the card's content." },
-    ];
+
+    const [users, setUsers] = useState([]);
+    const [message, setMessage] = useState('');
+    const [profileImage, setProfileImage] = useState('');
+
+    const handleProfileImageChange = (newSrc: string) => {
+        setProfileImage(newSrc);
+      };
+
+    useEffect(() => {
+        const fetchUsers = async () => {
+
+            try {
+                const response = await axios.get("http://localhost:8080/getAll");
+                setUsers(response.data.users);
+            }
+            catch (error) {
+                setMessage('Erro ao retornar usuário');
+            }
+        }
+        fetchUsers();
+    }, [])
 
     return (
         <>
@@ -37,25 +54,33 @@ export default function UserList() {
                     </Form>
                 </div>
 
-                    <Container className="mx-auto justify-content-between">
-                        <Row className="mx-auto justify-content-betwee align-content-center">
-                            {users.map((user, index) => (
-                                <Col key={index} xs={6} sm={12} md={4} className="mb-4 mt-5">
-                                    <Card className={style.card}>
-                                        <Card.Body>
-                                            <Card.Title>{user.title}</Card.Title>
-                                            <Card.Text>
-                                                {user.text}
-                                            </Card.Text>
-                                        </Card.Body>
-                                    </Card>
-                                    <div className={style.btn_area}>
+                <Container className="mx-auto justify-content-between">
+                    <Row className="mx-auto justify-content-between align-content-center">
+                        {users.map((user, index)=> (
+                            <Col key={index} xs={6} sm={12} md={4} className="mb-4 m5-5">
+                                <ProfilePicture/>
+                            </Col>
+                        ))}
+                    </Row>
+                </Container>
+
+                {/* <Container className="mx-auto justify-content-between">
+                    <Row className="mx-auto justify-content-betwee align-content-center">
+                        {users.map((user, index) => (
+                            <Col key={index} xs={6} sm={12} md={4} className="mb-4 mt-5">
+                                <Card className={style.card}>
+                                    <Card.Body key={user.Id}>
+                                        fotouser
+                                    </Card.Body>
+                                </Card>
+                                        <p key={user.Id}>{user.Name}</p>
+                                <div className={style.btn_area}>
                                     <button type="button" className={style.btn_delete}>DELETAR USUÁRIO</button>
-                                    </div>
-                                </Col>
-                            ))}
-                        </Row>
-                    </Container>
+                                </div>
+                            </Col>
+                        ))}
+                    </Row>
+                </Container> */}
             </div>
         </>
     );

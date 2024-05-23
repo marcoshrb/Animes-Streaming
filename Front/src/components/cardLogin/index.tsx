@@ -30,8 +30,8 @@ function CardLogin() {
 
   const navigate = useNavigate();
 
-  const handleProfileImageChange = (newSrc: string) => {
-    setProfileImage(newSrc);
+  const handleProfileImageChange = () => {
+    
   };
 
   async function handleSubmit(e) {
@@ -88,7 +88,7 @@ function CardLogin() {
         <div className={style["body_Card"]}>
           <Form onSubmit={handleSubmit}>
             <div className={style["img-Card"]}>
-              <ProfilePic src={profileImage} onChange={handleProfileImageChange} />
+              <ProfilePic src="../../../src/assets/img/background2.png" onChange={handleProfileImageChange} />
             </div>
             <div className="row">
               <div className="col-12">
