@@ -17,14 +17,17 @@ import CryptoJS from 'crypto-js';
 import axios from 'axios';
 
 import { UserIdContext } from "../../context/UserId";
+import AuthContext from '../../context/AuthContext';
+import { Message } from "@mui/icons-material";
 
 function CardLogin() {
 
   const { idUser, setIdUser} = useContext(UserIdContext);
 
   const [profileImage, setProfileImage] = useState('');
-  const [login, setLogin] = useState('');
+  const [ Login, setLogin] = useState('');
   const [password, setPassword] = useState('');
+  const { login } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -40,7 +43,7 @@ function CardLogin() {
       return
 
     const json = {
-      login, password
+      login : Login, password
     }
    
     const jsonCrypt = CryptoJS.AES.encrypt(JSON.stringify(json), SECRET).toString();
@@ -58,21 +61,23 @@ function CardLogin() {
       setLogin('');
       setPassword('');
 
-      sessionStorage.setItem('token', res.data.token);
+      login(res.data.token);
+  
       navigate('/home')
 
     } catch (error) {
+      alert(error);
       console.log(error);
     }
   }
 
   function formValid() {
-    if (!login.includes('@')) {
-      console.log('Insira um e-mail válidos')
+    if (!Login.includes('@')) {
+      alert('Insira um e-mail válidos')
       return false;
     }
-    if (login.length < 5) {
-      console.log('Insira um e-mail válido')
+    if (Login.length < 5) {
+      alert('Insira um e-mail válido')
       return false;
     }
     return true

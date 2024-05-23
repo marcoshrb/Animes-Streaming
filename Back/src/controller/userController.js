@@ -15,13 +15,15 @@ class UserController {
 
         const { login, password } = json;
 
+        
         if (!login)
             return res.status(422).json({ message: "O login é obrigatório." });
-
+        
         if (!password)
             return res.status(422).json({ message: "A senha é obrigatória." });
-
-        conexao.query('SELECT * FROM Usuario WHERE email = ?', [login], async (error, results) => {
+        
+        conexao.query('SELECT * FROM usuario WHERE Email = ?', [login], async (error, results) => {
+            
             if (error) {
                 console.error(error);
                 return res.status(500).send({ message: "Erro ao realizar a consulta." });

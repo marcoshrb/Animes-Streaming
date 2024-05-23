@@ -44,12 +44,14 @@ function Coments({ VideoId }: any) {
   async function GetComent() {
     try {
       const res = await axios.get(`http://localhost:8080/comentario/GetById/${VideoId}`);
+      
       if (Array.isArray(res.data)) {
         console.log("Comentários recebidos:", res.data);
         setComentarios(res.data);
+        // console.log(comentarios)
       } else {
         console.log("Resposta da API inesperada:", res);
-        setComentarios([]); 
+        // setComentarios([]); 
       }
     } catch (error) {
       console.log("Erro ao buscar comentários:", error);
