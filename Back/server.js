@@ -18,6 +18,7 @@ const Filme = require("./src/model/filme");
 const SerieEp = require("./src/model/serie_episodio");
 const Serie = require("./src/model/serie");
 const Video = require("./src/model/video");
+const Foto = require("./src/model/foto_usuario")
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -37,9 +38,9 @@ app.use(cors({
 
 app.use('/upload', express.static(path.join(__dirname, 'upload'))); // Serve os arquivos estáticos da pasta uploads
 
-// Adicionar endpoint para upload
+// Upload na pasta upload
 app.post('/upload', upload.single('image'), (req, res) => {
-  const fotoController = require('./path/to/your/fotoController'); // Ajuste o caminho conforme necessário
+  const fotoController = require('.controller/fotoController'); 
   fotoController.upload(req, res);
 });
 
@@ -50,6 +51,7 @@ Filme.init(conexao);
 SerieEp.init(conexao);
 Serie.init(conexao);
 Video.init(conexao);
+Foto.init(conexao);
 
 router(app);
  

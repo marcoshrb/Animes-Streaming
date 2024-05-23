@@ -21,7 +21,7 @@ import axios from 'axios';
 export default function CardRegister() {
 
   const [profileImage, setProfileImage] = useState('');
-  const [userId, setUserId] = useState<number | null>(null);
+  const [userId, setUserId] = useState('');
   var [name, setName] = useState('');
   var [email, setEmail] = useState('');
   var [password, setPassword] = useState('');
@@ -57,7 +57,6 @@ export default function CardRegister() {
         setUserId(newUserId);
 
         if (profileImage) {
-          // handleProfileImageChange function to upload the image
           handleProfileImageChange(profileImage);
         }
 
@@ -156,7 +155,7 @@ export default function CardRegister() {
                   </Form.Floating>
                 </Col>
                 <Col  xs={12} sm={6} className={style.right_components}>
-                  <ProfilePic src={profileImage} userId={userId} onChange={handleProfileImageChange} />
+                  <ProfilePic src={profileImage} userId={1} onChange={handleProfileImageChange} />
 
                   <button className={style.btn_register} type="submit">CREATE ACCOUNT</button>
                   <p className={style.link}>Já possui uma conta? <a href="/"><span>Log In</span></a></p>

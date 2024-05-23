@@ -15,6 +15,12 @@ function NavBarComponent() {
   function AddMovie() {
     navigate('../AddMovie')
   }
+  function UserList() {
+    navigate('../user_list')
+  }
+  function Catalog() {
+    navigate('../catalog')
+  }
 
   return (
     <Navbar className={style["navbar"]} bg="dark" data-bs-theme="dark">
@@ -31,9 +37,15 @@ function NavBarComponent() {
               <NavDropdown.Item >
                 <Button variant="dark" onClick={AddMovie}>Adicionar Filme</Button>
               </NavDropdown.Item>
+              <NavDropdown.Item >
+                <Button variant="dark" onClick={UserList}>Lista de usuários</Button>
+              </NavDropdown.Item>
+              <NavDropdown.Item >
+                <Button variant="dark" onClick={Catalog}>Catálogo</Button>
+              </NavDropdown.Item>
             </NavDropdown>
           </Navbar.Brand>
-          
+
         </Navbar.Collapse>
       </Container>
     </Navbar>

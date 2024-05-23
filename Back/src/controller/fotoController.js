@@ -6,8 +6,8 @@ class fotoController {
         if (!req.file) {
             return res.status(400).send({ message: 'Nenhum arquivo' });
           }
-          const userId = req.body.userId; // Assume que o ID do usuário é enviado no corpo da solicitação
-          const imageUrl = `http://localhost:${port}/uploads/${req.file.filename}`;
+          const userId = req.body.userId;
+          const imageUrl = `http://localhost:8080/foto/upload/${req.file.filename}`;
         
           const query = 'INSERT INTO Foto (UserId, ImagePath) VALUES (?, ?)';
           conexao.query(query, [userId, imageUrl], (error, results) => {
