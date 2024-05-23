@@ -12,18 +12,27 @@ function Coments({ VideoId }: any) {
   const { idUser } = useContext(UserIdContext);
   const [comentarios, setComentarios] = useState([]);
   const [newComentarios, setNewComentarios] = useState('');
+  const [NameUser, setNameUser] = useState('');
 
   useEffect(() => {
     GetComent();
   }, []);
 
-  async function GetName() {
+  async function GetComent() {
     try {
-      const res = await axios.get(`http://localhost:8080/comentario/GetById/${idUser}`);
+      const res = await axios.get(`http://localhost:8080/comentario/GetById/${VideoId}`);
       
       if (res.data && res.data.Comentarios) {
-        console.log("Comentários recebidos:", res.data.Comentarios);
-        setComentarios(res.data.Comentarios);
+        // console.log("Comentários recebidos:", res.data.Comentarios);
+        // Iterating through comments to fetch user names
+        const comentariosWithUserNames = await Promise.all(res.data.Comentarios.map(async (comentario) => {
+          const nome = await GetName(comentario.UserId);
+          return {
+            ...comentario,
+            nome: nome
+          };
+        }));
+        setComentarios(comentariosWithUserNames);
       } else {
         console.log("Resposta da API inesperada:", res);
         setComentarios([]); 
@@ -32,6 +41,23 @@ function Coments({ VideoId }: any) {
     } catch (error) {
       console.log("Erro ao buscar comentários:", error);
       setComentarios([]);  
+    }
+  }
+
+  async function GetName(idUserPass : any) {
+    try {
+      const res = await axios.get(`http://localhost:8080/user/GetById/${idUserPass}`);
+      
+      if (res.data && res.data.Nome) { 
+        return res.data.Nome;
+      } else {
+        console.log("Resposta da API inesperada:", res);
+        return 'Usuário não encontrado'; 
+      }
+  
+    } catch (error) {
+      console.log("Erro ao buscar comentários:", error);
+      return 'Erro ao buscar usuário'; 
     }
   }
 
@@ -48,7 +74,7 @@ function Coments({ VideoId }: any) {
     try {
       const res = await axios.post(`http://localhost:8080/comentario`, json);
       if (res.data) {
-        console.log("Comentário criado:", res.data);
+        // console.log("Comentário criado:", res.data);
         setNewComentarios(''); 
         GetComent();  
       } else {
@@ -59,23 +85,7 @@ function Coments({ VideoId }: any) {
     }
   }
 
-  async function GetComent() {
-    try {
-      const res = await axios.get(`http://localhost:8080/comentario/GetById/${VideoId}`);
-      
-      if (res.data && res.data.Comentarios) {
-        console.log("Comentários recebidos:", res.data.Comentarios);
-        setComentarios(res.data.Comentarios);
-      } else {
-        console.log("Resposta da API inesperada:", res);
-        setComentarios([]); 
-      }
-  
-    } catch (error) {
-      console.log("Erro ao buscar comentários:", error);
-      setComentarios([]);  
-    }
-  }
+ 
 
   useEffect(() => {
     GetComent();
@@ -86,7 +96,7 @@ function Coments({ VideoId }: any) {
     try {
       const res = await axios.delete(`http://localhost:8080/comentario/remove/${comentarioId}`);
       if (res.data) {
-        console.log("Comentário deletado:", res.data);
+        // console.log("Comentário deletado:", res.data);
         setComentarios(comentarios.filter(comentario => comentario.Id !== comentarioId));
       } else {
         console.log("Resposta da API inesperada:", res);
@@ -103,7 +113,7 @@ function Coments({ VideoId }: any) {
           <div className={style["between"]}>
             <div className={style["indentify-User"]}>
               <img className={style["User-Photo"]} src={userIcon} alt="User" />
-              <h1 className={style["Titles"]}>{comentario.UserId}</h1>
+              <h1 className={style["Titles"]}>{comentario.nome}</h1>
             </div>
             <div>
               <Button

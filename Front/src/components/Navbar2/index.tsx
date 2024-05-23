@@ -33,9 +33,7 @@ function NavBarComponent() {
               </NavDropdown.Item>
             </NavDropdown>
           </Navbar.Brand>
-          <Navbar.Text>
-            Signed in as: <a href="#login">Mark Otto</a>
-          </Navbar.Text>
+          
         </Navbar.Collapse>
       </Container>
     </Navbar>
